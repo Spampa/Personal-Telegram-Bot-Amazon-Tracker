@@ -1,0 +1,62 @@
+[
+  {
+    "name": "session-id",
+    "value": "262-7037803-6495944",
+    "domain": ".amazon.it",
+    "path": "/",
+    "expires": 1751896705.682532,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "session-id-time",
+    "value": "2082787201l",
+    "domain": ".amazon.it",
+    "path": "/",
+    "expires": 1751896705.682762,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "i18n-prefs",
+    "value": "EUR",
+    "domain": ".amazon.it",
+    "path": "/",
+    "expires": 1751896705.682805,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "ubid-acbit",
+    "value": "257-9676542-3630919",
+    "domain": ".amazon.it",
+    "path": "/",
+    "expires": 1751896706.719256,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "session-token",
+    "value": "hDDfGyMiajoh1XxTOS7nYBKDlkydx3Bz9Vt/VHiYa/m1rM0TkK7R1yhnspka8wj72cHGQ08k4D3BNYNqNXjrPQbZJUQF6R4S7cdiS7QFgoWK7rt1jm9K4k8Z/pRkK5+TMF9tjwJUQgkFBAhMwU1dw4ebZXIzEfysqSM8kdgg7H5heAbtb6M8jFMUY5/GYyQ+T3JpxhcitjuBdfA/KH+dJK5vhP+SUfTD+/rAmP5PZsumXc8dQ8bQlr8ptKA8e5S7MokDqkJoBpU9hCIn/dR+zADjbQYRPTpjBQjjmdJRzrO069k7EnpKNdgNJLbPpKhvp00ynFolbF4rgG2P9Rg02fgJO0t+f1zd",
+    "domain": ".amazon.it",
+    "path": "/",
+    "expires": 1751896708.776939,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "csm-hit",
+    "value": "tb:D3YF3035PMEP2QM3HCMS+s-D3YF3035PMEP2QM3HCMS|1720360709544&t:1720360709544&adb:adblk_no",
+    "domain": "www.amazon.it",
+    "path": "/",
+    "expires": 1750600709,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  }
+]

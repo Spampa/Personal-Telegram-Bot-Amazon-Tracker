@@ -31,6 +31,7 @@ const routes = require('./routes/index');
 
 app.use(routes.lists);
 app.use(routes.products);
+app.use(routes.messages);
 
 //web socket
 const checkProducts = require('./jobs/checkProducts');

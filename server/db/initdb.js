@@ -53,6 +53,14 @@ async function createTables(conn) {
                 PRIMARY KEY (tracked_time, product)
             )
         `);
+
+        conn.query(`
+            CREATE TABLE IF NOT EXISTS ${process.env.DB_NAME}.messages(
+                chat_id CHAR(16) PRIMARY KEY,
+                message TEXT NOT NULL,
+                send_time DATETIME
+            )
+        `);
     }
     catch (e) {
         console.log(e);

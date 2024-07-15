@@ -22,7 +22,6 @@ Happy browsing and happy shopping! 🛍️`);
     
     axios.get(`${process.env.SERVER_URL}/v1/messages/${msg.chat.id}`)
     .catch(e => {
-        console.log(e);
         const error = e.response.data;
         
         if(error.code === 404){

@@ -28,7 +28,8 @@ Happy browsing and happy shopping! 🛍️`);
             axios.post(`${process.env.SERVER_URL}/v1/messages`, {
                 chat: msg.chat.id,
                 text: '/start'
-            });
+            })
+            .catch(e => console.log(e));
         }
     })
 
@@ -68,7 +69,8 @@ bot.on('message', async (msg) => {
     if(messageText !== '/start'){
         axios.put(`${process.env.SERVER_URL}/v1/messages/${chatId}`, {
             text: messageText
-        });
+        })
+        .catch(e => console.log(e));
     }
 
 });

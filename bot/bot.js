@@ -43,7 +43,7 @@ bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const messageText = msg.text;
     
-    const previousMessage = await axios.get(`${process.env.SERVER_URL}/v1/messages/${chatId}`).then(res => res.data.message);
+    const previousMessage = await axios.get(`${process.env.SERVER_URL}/v1/messages/${chatId}`).then(res => res.data.message).catch(e => null);
 
     if(previousMessage === '/add'){
         const link = messageText;

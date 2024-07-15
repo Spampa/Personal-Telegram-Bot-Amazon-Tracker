@@ -14,7 +14,7 @@ bot.onText(/\/start/, (msg) => {
 
 I'm your Amazon product tracking assistant. 🛒✨
         
-📈 I can monitor your favorite items and detect price changes every 10 minutes. ⏱️
+📈 I can monitor your favorite items and detect price changes every 5 minutes. ⏱️
         
 If you need help or want to start tracking a product, just let me know! 😊
         

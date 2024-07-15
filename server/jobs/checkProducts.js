@@ -51,7 +51,7 @@ module.exports = async (socket) => {
     console.log(new Date().toISOString().slice(0, 19).replace('T', ' ') + ' - Started Tracking');
     await checkProducts(socket);
     console.log(new Date().toISOString().slice(0, 19).replace('T', ' ') + ' - End Tracking');
-    cron.schedule('*/10 * * * *', async () => {
+    cron.schedule('*/5 * * * *', async () => {
         console.log(new Date().toISOString().slice(0, 19).replace('T', ' ') + ' - Started Tracking');
         await checkProducts(socket);
         console.log(new Date().toISOString().slice(0, 19).replace('T', ' ') + ' - End Tracking');

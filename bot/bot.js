@@ -79,15 +79,17 @@ socket.on('product', (data) => {
     const p = data.product;
     if(!data?.old){
         bot.sendPhoto(data.chat, data.image, {
-            caption: `👉 ${p.name}\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n (First Tracking)`,
-            filename: `${p.id}.png`
+            caption: `👉 ${p.name}\n\n🔗 [Prodotto Amazon](${data.link})\n\n ${p.name}\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n (First Tracking)`,
+            filename: `${p.id}.png`,
+            parse_mode: 'Markdown'
         });
     }
     else{
         const o = data.old;
         bot.sendPhoto(data.chat, data.image, {
-            caption: `👉 ${p.name}\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n 🔙Old Tracking:\n💰 ${o.price+o.currency}\n🎯 ${o.standardPrice+o.currency}\n📉 -${o.discount}%\n\n`,
-            filename: `${p.id}.png`
+            caption: `👉 ${p.name}\n\n🔗 [Prodotto Amazon](${data.link})\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n 🔙Old Tracking:\n💰 ${o.price+o.currency}\n🎯 ${o.standardPrice+o.currency}\n📉 -${o.discount}%\n\n`,
+            filename: `${p.id}.png`,
+            parse_mode: 'Markdown'
         });
     }
 });

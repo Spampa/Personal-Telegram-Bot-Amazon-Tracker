@@ -20,6 +20,7 @@ async function checkProducts(socket) {
             socket.emit('product', {
                 chat: trackProduct.chat_id,
                 product: data,
+                link: trackProduct.link,
                 image: image
             });
         }
@@ -35,8 +36,10 @@ async function checkProducts(socket) {
                         price: last.price,
                         standardPrice: last.standard_price,
                         discount: last.discount,
-                        currency: last.currency
+                        currency: last.currency,
+                        
                     },
+                    link: trackProduct.link,
                     image: image
                 });
             }

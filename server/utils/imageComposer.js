@@ -56,10 +56,18 @@ async function addText(collage, width, height, product) {
     const img = await loadImage(collage);
     ctx.drawImage(img, 0, 0, width, height);
 
-    ctx.font = 'bold 160px Roboto';
+    
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
-    ctx.fillText(product.price + product.currency, width / 2 + 350, height / 2 + 50);
+    if(product.price){
+        ctx.font = 'bold 160px Roboto';
+        ctx.fillText(product.price + product.currency, width / 2 + 350, height / 2 + 50);
+    }
+    else{
+        ctx.font = 'bold 130px Roboto';
+        ctx.fillText("OUT OF STOCK!", width / 2 + 350, height / 2 + 50);
+    }
+    
 
     if(product.discount !== 0){
         //standard price

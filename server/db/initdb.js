@@ -45,8 +45,8 @@ async function createTables(conn) {
             CREATE TABLE IF NOT EXISTS ${process.env.DB_NAME}.products_data(
                 tracked_time DATETIME,
                 product CHAR(16),
-                price TEXT NOT NULL,
-                standard_price TEXT NOT NULL,
+                price TEXT,
+                standard_price TEXT,
                 discount INT(4),
                 currency TEXT,
                 CONSTRAINT fk_product FOREIGN KEY (product) REFERENCES products(product_id) ON DELETE CASCADE,

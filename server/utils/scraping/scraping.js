@@ -22,24 +22,39 @@ async function scraping(link){
 
     console.log(link);
     const product = {};
-    const price = (await page.locator('div[id="corePrice_feature_div"]').first().innerText()).split('\n')[0].replace(',', '.');
-    const currency = price[price.length - 1];
 
     const id = page.url().split('/')[4].split('?')[0];
     product.id = id;
     product.name = await page.locator('span[id="productTitle"]').innerText();
-    product.price = price.slice(0, -1);
 
-    if((await page.locator('div[id="corePriceDisplay_desktop_feature_div"]').first().textContent()).includes('%')){
-        product.standardPrice = (await page.locator('span[class="a-price a-text-price"]').first().textContent()).split(currency)[0].replace(',', '.');
-        product.discount = Math.round(100 - (product.price * 100 / product.standardPrice));
+    let price;
+    try{
+        price = (await page.locator('div[id="corePrice_feature_div"]').first().innerText()).split('\n')[0].replace(',', '.');
+    }
+    catch{
+        price = null;
+    }
+
+    if(price != null){
+        const currency = price[price.length - 1];
+        product.price = price.slice(0, -1);
+    
+        if((await page.locator('div[id="corePriceDisplay_desktop_feature_div"]').first().textContent()).includes('%')){
+            product.standardPrice = (await page.locator('span[class="a-price a-text-price"]').first().textContent()).split(currency)[0].replace(',', '.');
+            product.discount = Math.round(100 - (product.price * 100 / product.standardPrice));
+        }
+        else{
+            product.standardPrice = product.price;
+            product.discount = 0
+        }
+        product.currency = currency;
     }
     else{
-        product.standardPrice = product.price;
-        product.discount = 0
+        product.price = null;
+        product.standardPrice = null;
+        product.discount = 0;
+        product.currency = null;
     }
-    product.currency = currency;
-    
 
     await page.waitForTimeout(2000);
     //save image

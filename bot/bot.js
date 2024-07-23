@@ -36,7 +36,7 @@ Happy browsing and happy shopping! 🛍️`);
 });
 
 bot.onText(/\/add/, (msg, match) => {
-    bot.sendMessage(msg.chat.id, '🔗Please send me the link of the product you want to track');
+    bot.sendMessage(msg.chat.id, '🔗 Please send me the link of the product you want to track');
 });
 
 bot.on('message', async (msg) => {
@@ -77,9 +77,14 @@ bot.on('message', async (msg) => {
 
 socket.on('product', (data) => {
     const p = data.product;
+    let startMessage = '';
+    if(!p.price){
+        startMessage = '❗Product Out Of Stock❗\n\n'
+    }
+
     if(!data?.old){
         bot.sendPhoto(data.chat, data.image, {
-            caption: `👉 ${p.name}\n\n🔗 [Prodotto Amazon](${data.link})\n\n ${p.name}\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n (First Tracking)`,
+            caption: `${startMessage}👉 ${p.name}\n\n${p.price ? `🔗 [Prodotto Amazon](${data.link})\n\n 💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n`: ''}(First Tracking)`,
             filename: `${p.id}.png`,
             parse_mode: 'Markdown'
         });
@@ -87,7 +92,7 @@ socket.on('product', (data) => {
     else{
         const o = data.old;
         bot.sendPhoto(data.chat, data.image, {
-            caption: `👉 ${p.name}\n\n🔗 [Prodotto Amazon](${data.link})\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n 🔙Old Tracking:\n💰 ${o.price+o.currency}\n🎯 ${o.standardPrice+o.currency}\n📉 -${o.discount}%\n\n`,
+            caption: `${startMessage}👉 ${p.name}\n\n${p.price ? `🔗 [Prodotto Amazon](${data.link})\n\n💰 ${p.price+p.currency}\n🎯 ${p.standardPrice+p.currency}\n📉 -${p.discount}%\n\n 🔙Old Tracking:\n💰 ${o.price+o.currency}\n🎯 ${o.standardPrice+o.currency}\n📉 -${o.discount}%\n\n` : ''}`,
             filename: `${p.id}.png`,
             parse_mode: 'Markdown'
         });
